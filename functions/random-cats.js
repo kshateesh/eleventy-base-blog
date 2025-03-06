@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 			const imageBuffer = await response.buffer();
 
 			res.setHeader("Content-Type", "image/jpeg");
-			res.setHeader("Cache-Control", "public, max-age=300");
+			res.setHeader("Cache-Control", "public, s-max-age=300");
 			res.status(200).send(imageBuffer);
 		} catch (error) {
 			console.error("Error fetching image:", error);
