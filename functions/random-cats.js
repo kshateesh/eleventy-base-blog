@@ -33,12 +33,8 @@ export default async function handler(req, res) {
         `;
 
 			res.setHeader("Content-Type", "text/html");
-			res.status(200).send(html);
-			const imageBuffer = await response.buffer();
-
-			res.setHeader("Content-Type", "image/jpeg");
 			res.setHeader("Cache-Control", "public, s-max-age=300");
-			res.status(200).send(imageBuffer);
+			res.status(200).send(html);
 		} catch (error) {
 			console.error("Error fetching image:", error);
 			res.status(500).json({ error: "Failed to fetch image" });
