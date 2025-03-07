@@ -22,7 +22,7 @@
   "license": "MIT",
   "engines": {
     "node": "22.x"
-  }
+  },
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/11ty"
