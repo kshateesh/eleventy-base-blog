@@ -1,3 +1,5 @@
+
+
 const DEFAULT_WIN = 5 * 60 * 1000;  // 5 minutes
 
 export default async function handler(req, context) {
@@ -7,6 +9,11 @@ export default async function handler(req, context) {
   const url       = new URL(req.url);
   const slug      = url.pathname.replace(/^\/+/, "");          // strip leading '/'
   const windowMs  = parseInt(url.searchParams.get("window") || DEFAULT_WIN, 10);
+  console.log("STATS operations")
+  console.log("STATS get ", STATS)
+  STATS = STATS + JSON.stringify({"/some": {}})
+  console.log("STATS put ", STATS)
+  console.log("STATS get ", STATS)
 
   if (slug === "stats" || slug === "") {
     // List at most 1000 keys (enough for our 200‑route test)
