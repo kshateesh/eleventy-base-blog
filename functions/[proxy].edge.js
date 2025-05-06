@@ -10,7 +10,7 @@ export default async function handler(req, context) {
 
   if (slug === "stats" || slug === "") {
     // List at most 1000 keys (enough for our 200‑route test)
-    const { keys } = await STATS.list({ limit: 1000 });
+    const keys = await STATS.keys({ limit: 1000 });
     let totalHits  = 0;
     const routes   = {};
 
