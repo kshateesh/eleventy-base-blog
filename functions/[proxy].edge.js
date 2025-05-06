@@ -1,7 +1,8 @@
 const DEFAULT_WIN = 5 * 60 * 1000;  // 5 minutes
 
 export default async function handler(req, context) {
-  const { STATS } = context.env;            // KV binding
+  context.env.STATS = context.env.STATS || {};  // Initialize STATS in context.env if not already present
+  const { STATS } = context.env;               // Destructure STATS from context.env
   const now       = Date.now();
   const url       = new URL(req.url);
   const slug      = url.pathname.replace(/^\/+/, "");          // strip leading '/'
